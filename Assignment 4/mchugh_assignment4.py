@@ -88,7 +88,7 @@ def checkGrades():
         # Search for a grade
         ## No need for else statement because infinite loop run until option is 1-4
         # Ask user for a number to search for
-        print()
+        print() # New line
         searchNum = input('Enter a number to search for: ')
         intSearchNum = int(searchNum)
 
