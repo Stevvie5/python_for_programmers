@@ -36,9 +36,9 @@ def getFileAsString(fileName):
     while True:
         try:
             fileInput = open(fileName, 'r')
-            fileText = fileInput.read()
+            fileContents = fileInput.read()
             fileInput.close()
-            return fileText
+            return fileContents
         except:
             print('The file to examine was not found.')
             fileName = input('Please enter a new file to examine: ')
@@ -51,10 +51,10 @@ def checkGrades():
 
     # Read in contents of exam_grades.csv
     fileName = 'exam_grades.csv'
-    fileText = getFileAsString(fileName)
+    fileContents = getFileAsString(fileName)
 
     # Convert to list of ints from exam grades
-    txtGradeList = fileText.split(",")
+    txtGradeList = fileContents.split(",")
     # Cast text list to list of ints
     intGradeList = []
     for grade in txtGradeList:
