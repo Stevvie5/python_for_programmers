@@ -9,7 +9,7 @@ def wordFreq(fileName):
         processedWord = ''
         for character in word:
             character = character.lower()
-            if character in ['?','!',',','.',';',':','\n']:
+            if character in ['?','!',',','.',';',':']:
                 character = ''
             processedWord += character
         processedWords[processedWord] = processedWords.get(processedWord, 0) +1
