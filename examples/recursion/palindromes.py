@@ -15,7 +15,7 @@ def isPalindrome(text):
 				return False
 	else:
 		return False
-		
+			
 def getPalindromesBySize(text, size):
 	sizeText = ''
 	palindromeCount = 0
@@ -30,15 +30,12 @@ def getPalindromesBySize(text, size):
 				subText = text[i : i+size]
 
 				if isPalindrome(subText.lower()) == True:
-					sizeText += subText[1 : len(subText)] + ' '
+					sizeText += subText[1 : len(subText)]
 					palindromeCount += 1
 					
 					if size > 1:
 						skipNext = True
-				else:
-					sizeText += ' '
-			else:
-				sizeText += ' '
+			sizeText += ' '
 		else:
 			skipped += 1
 			if skipped == size-1:
@@ -51,6 +48,4 @@ def allPalindromes(text):
 		palindromes, palindromeCount = getPalindromesBySize(text, searchSize)
 		if palindromeCount > 0:
 			print(palindromes)
-
-print(isPalindrome('need'))
 		
