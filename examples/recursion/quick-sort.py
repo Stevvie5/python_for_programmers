@@ -41,7 +41,9 @@ def quicksort(listOfNums):
 		
 		# Move the pivot to the end
 		listOfNums[medianPointIndex-1], listOfNums[len(listOfNums)-1] = listOfNums[len(listOfNums)-1], listOfNums[medianPointIndex-1]
-		pivot = int(listOfNums[len(listOfNums)-1])
+		
+		pivotCopyList = list(listOfNums)
+		pivot = pivotCopyList[len(listOfNums)-1]
 		
 		itemFromLeft = listOfNums[0]
 		itemFromLeftIndex = 0
@@ -50,34 +52,29 @@ def quicksort(listOfNums):
 		itemFromRightIndex = len(listOfNums)-2
 		
 		while itemFromLeftIndex <= itemFromRightIndex:
+			increaseLeft = 1
+			decreaseRight = 1
+			
 			if itemFromLeft > pivot and itemFromRight < pivot:
 				listOfNums[itemFromLeftIndex], listOfNums[itemFromRightIndex] = listOfNums[itemFromRightIndex], listOfNums[itemFromLeftIndex]
-				
-				itemFromRightIndex -= 1
-				itemFromRight = listOfNums[itemFromRightIndex]
-				
-				itemFromLeftIndex+=1
-				itemFromLeft = listOfNums[itemFromLeftIndex]			
 			elif itemFromRight < pivot:
-				itemFromLeftIndex+=1
-				itemFromLeft = listOfNums[itemFromLeftIndex]
+				decreaseRight = 0
 			elif itemFromLeft > pivot:
-				itemFromRightIndex -= 1
-				itemFromRight = listOfNums[itemFromRightIndex]
-			else:
-				itemFromRightIndex -= 1
-				itemFromRight = listOfNums[itemFromRightIndex]
+				increaseLeft = 0
 				
-				itemFromLeftIndex+=1
-				itemFromLeft = listOfNums[itemFromLeftIndex]
-
+			itemFromRightIndex -= decreaseRight
+			itemFromLeftIndex+= increaseLeft
+			
+			itemFromRight = listOfNums[itemFromRightIndex]
+			itemFromLeft = listOfNums[itemFromLeftIndex]
+			
 		listOfNums[itemFromLeftIndex], listOfNums[len(listOfNums)-1] = listOfNums[len(listOfNums)-1], listOfNums[itemFromLeftIndex]
 		
 		
 		firstHalf = listOfNums[0:itemFromLeftIndex]
 		secondHalf = listOfNums[itemFromLeftIndex+1:len(listOfNums)]
 		return quicksort(firstHalf) + [listOfNums[itemFromLeftIndex]] + quicksort(secondHalf)
-
-print(quicksort([69,24,6,3,20,4,55,5,1,32]))
+		
+print(quicksort(["hi", "apple", "tommy", "barab", "goose", "daniel"]))
 
 	
