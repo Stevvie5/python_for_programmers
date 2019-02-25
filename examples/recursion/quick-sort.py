@@ -1,5 +1,3 @@
-import math
-
 def getPivot(listOfNums):
 	# Perform median of three
 	# To determine pivot
@@ -42,39 +40,18 @@ def quicksort(listOfNums):
 		# Move the pivot to the end
 		listOfNums[medianPointIndex-1], listOfNums[len(listOfNums)-1] = listOfNums[len(listOfNums)-1], listOfNums[medianPointIndex-1]
 		
-		pivotCopyList = list(listOfNums)
-		pivot = pivotCopyList[len(listOfNums)-1]
+		pivot = listOfNums[len(listOfNums)-1]
 		
-		itemFromLeft = listOfNums[0]
 		itemFromLeftIndex = 0
-		
-		itemFromRight = listOfNums[len(listOfNums)-2]
 		itemFromRightIndex = len(listOfNums)-2
-		
+
 		while itemFromLeftIndex <= itemFromRightIndex:
-			increaseLeft = 1
-			decreaseRight = 1
-			
-			if itemFromLeft > pivot and itemFromRight < pivot:
-				listOfNums[itemFromLeftIndex], listOfNums[itemFromRightIndex] = listOfNums[itemFromRightIndex], listOfNums[itemFromLeftIndex]
-			elif itemFromRight < pivot:
-				decreaseRight = 0
-			elif itemFromLeft > pivot:
-				increaseLeft = 0
-				
-			itemFromRightIndex -= decreaseRight
-			itemFromLeftIndex+= increaseLeft
-			
-			itemFromRight = listOfNums[itemFromRightIndex]
-			itemFromLeft = listOfNums[itemFromLeftIndex]
-			
-		listOfNums[itemFromLeftIndex], listOfNums[len(listOfNums)-1] = listOfNums[len(listOfNums)-1], listOfNums[itemFromLeftIndex]
-		
+			itemFromLeft = listOfNums[]
 		
 		firstHalf = listOfNums[0:itemFromLeftIndex]
 		secondHalf = listOfNums[itemFromLeftIndex+1:len(listOfNums)]
 		return quicksort(firstHalf) + [listOfNums[itemFromLeftIndex]] + quicksort(secondHalf)
 		
-print(quicksort(["hi", "apple", "tommy", "barab", "goose", "daniel"]))
+print(quicksort([4,7,10,2,3, 50, 1, 23,30,67,82,35]))
 
 	

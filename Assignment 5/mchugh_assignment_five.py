@@ -32,17 +32,23 @@ def createStudentDictionary():
 	return classRoster
 
 def studentSearch(classRoster, studentId):
+	'Searchs a class roster for a student by id'
 	try:
+		# Retrieve student by student Id
 		student = classRoster[studentId]
 		
+		# Get the students information
 		studentFirstName = student[0]
 		studentLastName = student[1]
 		studentClass = student[2]
 		
+		# Return student information
 		studentString = 'First Name: {0}\nLast Name: {1}\nYear: {2}'.format(studentFirstName, studentLastName, studentClass)
 		return studentString
 	except KeyError:
+		# The student Id was invalid
 		return 'No student found with ID: {0}'.format(studentId)
 	except:
+		# Something else unexpected happened here.
 		return 'An unexpected error occured.'
 		
