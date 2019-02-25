@@ -15,7 +15,7 @@ def createStudentDictionary():
 		# Remove the new line item
 		seperatedByNewLineItem = rosterItem.replace('\n', '')
 	
-		# For each line split values into an array
+		# For each line split values into a list
 		studentInfoList = seperatedByNewLineItem.split(',')
 		
 		# Get the info for the student
