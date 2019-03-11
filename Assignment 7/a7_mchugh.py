@@ -38,7 +38,7 @@ class Car(Vehicle):
 		
 	def __str__(self):
 		'Returns general information about the car'
-		return "The mode of transport is: {0}\nCan carry up to: {1}\nOdometer: {2}\nMake: {3}\nModel: {4}\nColor: {5}".format(self.mode, self.maxPassengers, self.odometer, self.make, self.model, self.color)
+		return super().__str__() + '\nMake: {3}\nModel: {4}\nColor: {5}'.format(self.mode, self.maxPassengers, self.odometer, self.make, self.model, self.color)
 		
 	def __eq__(self, otherCar):
 		'Checks to see if another car is identical to the current car'
@@ -64,7 +64,7 @@ class Boat(Vehicle):
 		
 	def __str__(self):
 		'Returns general information about the boat'
-		return "The mode of transport is: {0}\nCan carry up to: {1}\nOdometer: {2}\nLength: {3}\nHorsepower: {4}".format(self.mode, self.maxPassengers, self.odometer, self.length, self.horsepower)
+		return super().__str__() + '\nLength: {3}\nHorsepower: {4}'.format(self.mode, self.maxPassengers, self.odometer, self.length, self.horsepower)
 		
 	def __eq__(self, otherBoat):
 		'Checks to see if another boat is identical to the current boat'
