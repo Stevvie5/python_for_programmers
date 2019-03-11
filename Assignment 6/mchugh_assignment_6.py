@@ -2,7 +2,7 @@
 # Assignment 6
 # CSC 243
 
-class Student:
+class Student(object):
 	'A class to hold information regarding students in a class and their grade.'
 	# Create instance variable for name
 	# Create getter and setter methods for name
@@ -55,8 +55,10 @@ class Student:
 	
 	def printStudentInfo(self):
 		'Returns the information about the student'
-		return 'Name: {0}\nPercent Grade: {1}\nLetter Grade: {2}'.format(self.name, self.percentGrade, self.letterGrade)
+		try:
+			return 'Name: {0}\nPercent Grade: {1}\nLetter Grade: {2}'.format(self.name, self.percentGrade, self.letterGrade)
+		except:
+			return 'Error. Some information for the student has not yet been set.'
 		
 	def __str__(self):
 		return self.printStudentInfo()
-	
