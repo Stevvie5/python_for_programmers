@@ -42,11 +42,8 @@ class Car(Vehicle):
 		
 	def __eq__(self, otherCar):
 		'Checks to see if another car is identical to the current car'
-		if self.odometer != otherCar.odometer:
-			return False
-		elif self.mode != otherCar.mode:
-			return False
-		elif self.maxPassengers != otherCar.maxPassengers:
+		inheritCheck = super().__eq__(otherCar)
+		if inheritCheck == False:
 			return False
 		elif self.make != otherCar.make:
 			return False
@@ -71,11 +68,8 @@ class Boat(Vehicle):
 		
 	def __eq__(self, otherBoat):
 		'Checks to see if another boat is identical to the current boat'
-		if self.odometer != otherBoat.odometer:
-			return False
-		elif self.mode != otherBoat.mode:
-			return False
-		elif self.maxPassengers != otherBoat.maxPassengers:
+		inheritCheck = super().__eq__(otherBoat)
+		if inheritCheck == False:
 			return False
 		elif self.length != otherBoat.length:
 			return False
