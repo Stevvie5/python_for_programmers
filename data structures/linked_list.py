@@ -2,7 +2,7 @@ class LinkedNode(object):
 	__nextNode = None
 	__prevNode = None
 	
-	def __init__(self, nodeObject, nextObject=None):
+	def __init__(self, nodeObject=None, nextObject=None):
 		self.__nodeObject = nodeObject
 		if nextObject != None:
 			self.__nextNode = LinkedNode(nextObject)
@@ -26,20 +26,22 @@ class LinkedNode(object):
 		self.__prevNode = prevNode
 
 class LinkedList(object):
-	def __init__(self, headObject):
-		self.headNode = LinkedNode(headObject)
-		
+	headNode = LinkedNode()
+	
 	def append(self, endObject):
-		currentNode = self.headNode
-		finalLinkedNode = currentNode.getNextNode()
-		
-		if finalLinkedNode == None:
-			self.headNode.setNextObject(endObject)
+		if self.headNode != None:
+			currentNode = self.headNode
+			finalLinkedNode = currentNode.getNextNode()
+			
+			if finalLinkedNode == None:
+				self.headNode.setNextObject(endObject)
+			else:
+				while finalLinkedNode != None:
+					currentNode = finalLinkedNode
+					finalLinkedNode = currentNode.getNextNode()
+				currentNode.setNextObject(endObject)
 		else:
-			while finalLinkedNode != None:
-				currentNode = finalLinkedNode
-				finalLinkedNode = currentNode.getNextNode()
-			currentNode.setNextObject(endObject)
+			self.headNode = LinkedNode(endObject)
 				
 	def next(self):
 		nextNode = self.headNode.getNextNode()
@@ -52,30 +54,7 @@ class LinkedList(object):
 	def prev(self):
 		prevNode = self.headNode.getPrevNode()
 		self.headNode = prevNode
-
-'''
-TESTS
-
-myList = LinkedList(120)
-print(myList.getCurrent())
-
-myList.append(130)
-myList.append(150)
-myList.append(160)
-
-myList.next()
-print(myList.getCurrent())
-myList.next()
-print(myList.getCurrent())
-myList.next()
-print(myList.getCurrent())
-
-myList.prev()
-print(myList.getCurrent())
-myList.prev()
-print(myList.getCurrent())
-myList.prev()
-print(myList.getCurrent())
-'''
-
+		
+	def __str__(self):
+		return str(self.getCurrent())
 
