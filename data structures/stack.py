@@ -25,8 +25,11 @@ class StackNode(object):
 
 class Stack(object):
 	__headNode = StackNode()
+	count = 0
 
 	def push(self, newObject):
+		self.count += 1
+		
 		if self.isEmpty():
 			self.__headNode.setObject(newObject)
 		else:
@@ -38,10 +41,16 @@ class Stack(object):
 		currentValue = self.__headNode.getObject()
 		newHead = self.__headNode.getNextNode()
 		self.__headNode = newHead
+		
+		self.count -= 1
+		
 		return currentValue
 		
+	def __len__(self):
+		return self.count
+				
 	def isEmpty(self):
-		if self.__headNode.getObject() == None:
+		if self.count == 0:
 			return True
 		else:
 			return False
