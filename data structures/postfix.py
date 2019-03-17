@@ -1,8 +1,8 @@
 from stack import Stack
 
-operators = '+-/*'
-
 def postfix(expression):
+	operators = '+-/*'
+	
 	expressionStack = Stack()
 	expressionList = expression.split(' ')
 	
